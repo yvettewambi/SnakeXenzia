@@ -1,9 +1,24 @@
+import {update as updateSnake, draw as drawSnake, snakeSpeed} from './snake'
 let lastTime = 0
-const snakeSpeed = 2
 
 function main(currentTime) {
     const secondSince = (currentTime-lastTime) /1000
-    secondSince < 1/snakeSpeed
+    if (secondSince < 1/snakeSpeed) return
     window.requestAnimationFrame(main)
     lastTime = currentTime
+
+    update()
+
+    draw()
+}
+
+function update(){
+    updateSnake()
+
+
+}
+
+function draw() {
+    drawSnake()
+
 }
