@@ -1,10 +1,12 @@
 import {update as updateSnake, draw as drawSnake, snakeSpeed} from './snake'
 let lastTime = 0
+const board = document.getElementById('board')
 
 function main(currentTime) {
+    window.requestAnimationFrame(main)
     const secondSince = (currentTime-lastTime) /1000
     if (secondSince < 1/snakeSpeed) return
-    window.requestAnimationFrame(main)
+    
     lastTime = currentTime
 
     update()
@@ -19,6 +21,6 @@ function update(){
 }
 
 function draw() {
-    drawSnake()
+    drawSnake(board)
 
 }
